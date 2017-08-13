@@ -16,6 +16,15 @@ class PostsController < ApplicationController
     end
   end
 
+  def update
+    if @post.update(post_params)
+      flash[:success] = "Blog post was updated succesfully"
+      redirect_to post_path(@post)
+    else
+      render 'edit'
+    end
+  end
+
   def index
     @post = Post.all
   end
@@ -36,6 +45,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:title, :body, category_ids: [])
+      params.require(:post).permit(:image, :title, :body)
     end
 end
