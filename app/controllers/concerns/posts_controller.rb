@@ -1,13 +1,14 @@
 class PostsController < ApplicationController
   skip_before_action :verify_authenticity_token
   before_action :set_post, only: [:edit, :update, :show, :destroy]
+  before_action :authenticate_user!, except: [:index, :show]
 
   def new
-    @post = Post.new
+    @post = current_user.posts.build
   end
 
   def create
-    @post = Post.new(post_params)
+    @post = current_user.posts.build(post_params)
     if @post.save
       flash[:success] = "Article was successfully created"
       redirect_to post_path(@post)

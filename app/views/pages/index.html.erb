@@ -1,1 +1,7 @@
 <h1>Home page</h1>
+
+<% @post.each do |post| %>
+  <p><%= link_to post.title, post_path(post) %></p>
+  <%= image_tag post.image.url %><br>
+  <%= truncate(post.body, length: 100) %><hr>
+<% end %>
