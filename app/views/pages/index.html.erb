@@ -1,7 +1,20 @@
-<h1>Home page</h1>
-
-<% @post.each do |post| %>
-  <p><%= link_to post.title, post_path(post) %></p>
-  <%= image_tag post.image.url %><br>
-  <%= truncate(post.body, length: 100) %><hr>
-<% end %>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+  </head>
+  <body>
+    <div align= "center" class="container">
+      <h1 class="head">Wychee Fashion</h1>
+      <div class="">
+        <% @post.each do |post| %>
+          <h2 class="posts"><%= link_to post.title, post_path(post) %></h2>
+          <div class="images"><%= image_tag post.image.url %><br></div>
+          <%= truncate(post.body, length: 100) %><br>
+        <% end %>
+      </div>
+    </div>
+  </body>
+</html>
