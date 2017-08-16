@@ -1,23 +1,23 @@
-<%= form_for(@post, :html => {:multipart => true, class: "form-horizontal", role: "form"}) do |f| %>
-  <div class="">
-  <%= f.label :title %>
-</div>
-  <div class="">
-    <%= f.text_field :title, class: "form-control", placeholder: "Title of article", autofocus: true %>
-</div>
-<div class="">
-  <%= f.label :body %>
-  </div>
-  <div class="">
-  <%= f.text_area :body, rows: 10, class: "form-control", placeholder: "Body of article" %>
-  </div>
-  <div class="">
+  <%= form_for(@post, :html => {:multipart => true, class: "form-horizontal", role: "form"}) do |f| %>
     <div class="">
-      <%= f.label :image %>
-    </div>
-    <%= f.file_field :image , as: :file %>
+    <%= f.label :title %>
+  </div>
+    <div class="">
+      <%= f.text_field :title, class: "form-control", placeholder: "Title of article", autofocus: true %>
   </div>
   <div class="">
-  <%= f.submit class: 'btn btn-primary btn-lg' %>
-</div>
-<% end %>
+    <%= f.label :body %>
+    </div>
+    <div class="">
+    <%= f.text_area :body, rows: 10, class: "form-control", placeholder: "Body of article" %>
+    </div>
+    <div class="">
+      <div class="">
+        <%= f.label :image %>
+      </div>
+      <%= f.file_field :image , as: :file %>
+    </div>
+    <div class="">
+    <%= f.submit class: 'btn btn-primary btn-lg' %>
+  </div>
+  <% end %>

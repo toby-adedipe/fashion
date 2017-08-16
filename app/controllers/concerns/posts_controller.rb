@@ -4,7 +4,11 @@ class PostsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def new
-    @post = current_user.posts.build
+    if current_user.admin?
+      @post = current_user.posts.build
+    else
+      redirect_to posts_path
+    end
   end
 
   def create
@@ -17,13 +21,21 @@ class PostsController < ApplicationController
     end
   end
 
-  def update
-    if @post.update(post_params)
-      flash[:success] = "Blog post was updated succesfully"
-      redirect_to post_path(@post)
-    else
-      render 'edit'
+  def edit
+    if !current_user.admin?
+      redirect_to posts_path
     end
+
+
+  end
+
+  def update
+      if @post.update(post_params)
+        flash[:success] = "Blog post was updated succesfully"
+        redirect_to post_path(@post)
+      else
+        render 'edit'
+      end
   end
 
   def index
@@ -35,9 +47,13 @@ class PostsController < ApplicationController
   end
 
   def destroy
-    @post.destroy
-    flash[:danger] = "Article was deleted succesfully"
-    redirect_to posts_path
+    if current_user.admin?
+      @post.destroy
+      flash[:danger] = "Article was deleted succesfully"
+      redirect_to posts_path
+    else
+      redirect_to posts_path
+    end
   end
 
   private

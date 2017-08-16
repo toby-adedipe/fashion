@@ -7,12 +7,11 @@
   </head>
   <body>
     <div align= "center" class="container">
-      <h1 class="head">Wychee Fashion</h1>
       <div class="">
         <% @post.each do |post| %>
           <h2 class="posts"><%= link_to post.title, post_path(post) %></h2>
-          <div class="images"><%= image_tag post.image.url %><br></div>
-          <%= truncate(post.body, length: 100) %><br>
+          <div class="images"><%= image_tag post.image.url, width: '500px'%><br></div>
+          <%= truncate(post.body, length: 100) %><hr>
         <% end %>
       </div>
     </div>
