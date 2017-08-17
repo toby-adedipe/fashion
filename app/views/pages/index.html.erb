@@ -13,6 +13,12 @@
           <div class="images"><%= image_tag post.image.url, width: '500px'%><br></div>
           <%= truncate(post.body, length: 100) %><hr>
         <% end %>
+        <!-- Pager -->
+        <ul class="pager">
+            <li class="next">
+                <a href="#">Older Posts &rarr;</a>
+            </li>
+        </ul>
       </div>
     </div>
   </body>

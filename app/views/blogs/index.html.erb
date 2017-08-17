@@ -1,0 +1,10 @@
+<div align= "center" class="container">
+  <div class="">
+    <% @post.each do |post| %>
+    <%= post.created_at.strftime("%B, %d, %Y") %>
+      <h2 class="posts"><%= link_to post.title, post_path(post) %></h2>
+      <div class="images"><%= image_tag post.image.url, width: '500px'%><br></div>
+      <%= truncate(post.body, length: 50) %><hr>
+    <% end %>
+  </div>
+</div>

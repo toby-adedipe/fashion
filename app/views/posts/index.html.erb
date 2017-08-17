@@ -1,6 +1,7 @@
 <div align = "center" class="container">
   <h1>index page for posts</h1>
   <% @post.each do |post| %>
+    <%= post.created_at.strftime("%B, %d, %Y") %> 
     <p><%= link_to post.title, post_path(post) %></p>
     <%= image_tag post.image.url %><br>
     <%= truncate(post.body, length: 100) %><hr>
