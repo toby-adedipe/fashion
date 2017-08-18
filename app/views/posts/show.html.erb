@@ -1,4 +1,4 @@
-<div class="container">
+<div align="center" class="container">
   <h1>show page</h1>
   <h2>Title: <%= @post.title %> </h2>
   <%= image_tag @post.image.url %><br>
@@ -7,7 +7,7 @@
     created <%= time_ago_in_words(@post.created_at) %> ago
   </p>
 
-  <% if current_user.admin? %>
+  <% if user_signed_in? && current_user.admin? %>
     <%= link_to "delete this post", post_path(@post), method: :delete, data: { confirm: "Are you sure you want to delete the article?"}%> ||
     <%= link_to "edit blog post", edit_post_path(@post) %> ||
     <%= link_to "all blog listing", posts_path %>

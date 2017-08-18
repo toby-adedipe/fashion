@@ -10,6 +10,7 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+
 h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5, h6, .h6,{
   font-family: "lobster two";
 }
@@ -18,24 +19,15 @@ body {
   font-family: "open sans";
 }
 
-.navbar-inverser{
-  background: #303f9f;
-}
-.navbar-inverse .navbar-nav> .active >a,
-.navbar-inverse .navbar-nav> .active > a:hover,
-.navbar-inverse .navbar-nav> .active > a:focus,{
-  color: #fff;
-  background: 3#1a237e;
+.navbar-inverse{
+  background: #fff;
 }
 
-.navbar-inverse .navbar-nav .open .dropdown-menu> li> a,
-.navbar-inverse .navbar-nav .open .dropdown-menu>{
-  background-color: #303f9f;
-  color: #eeeeee;
-}
-
-.navbar-inverse .navbar-nav .open .dropdown-menu> li> a:hover {
-  color: #000000;
+.navbar-inverse .navbar-nav> .active,
+.navbar-inverse .navbar-nav> li:hover,
+.navbar-inverse .navbar-nav> li:focus,{
+  color: #A9A9A9;
+  background: #0085A1;
 }
 
 .home{
@@ -46,12 +38,12 @@ body {
 .home > h1:hover,
 .home > h1:focus{
   color: #000000;
-  background: 3#1a237e;
+  background: #1a237e;
 }
-.pager li > a,
-.pager li > span {
+
+.pager li,
+.pager li {
   font-family: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-  text-transform: uppercase;
   font-size: 14px;
   font-weight: 800;
   letter-spacing: 1px;
@@ -59,17 +51,55 @@ body {
   background-color: white;
   border-radius: 0;
 }
-.pager li > a:hover,
-.pager li > a:focus {
+.pager li> span:hover,
+.pager li> span:focus {
   color: white;
   background-color: #0085A1;
-  border: 1px solid #0085A1;
+  border: 1px #0085A1;
 }
-.pager .disabled > a,
-.pager .disabled > a:hover,
-.pager .disabled > a:focus,
-.pager .disabled > span {
+.pager .disabled,
+.pager .disabled:hover,
+.pager .disabled:focus,
+.pager .disabled {
   color: #777777;
   background-color: #333333;
   cursor: not-allowed;
+}
+
+body {
+  background-color:#fff;
+  -webkit-font-smoothing: antialiased;
+  font: normal 14px Roboto,arial,sans-serif;
+}
+
+//.log-container {
+  //  padding: 25px;
+  //  position: fixed;
+//}
+
+.form-login {
+    background-color: #EDEDED;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    border-radius: 15px;
+    border-color:#d2d2d2;
+    border-width: 5px;
+    box-shadow:0 1px 0 #cfcfcf;
+}
+
+.form-login> h4 {
+ border:0 solid #fff;
+ border-bottom-width:1px;
+ padding-bottom:10px;
+ text-align: center;
+}
+
+.form-control {
+    border-radius: 10px;
+}
+
+.log-wrapper {
+    text-align: center;
 }
