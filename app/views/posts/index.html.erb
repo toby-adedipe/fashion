@@ -7,7 +7,7 @@
     <%= truncate(post.body, length: 100) %><hr>
     <ul class="pager">
         <li class="next">
-            <%= link_to "Read more" post_path(post) %>
+            <%= link_to "Read more", post_path(post) %>
         </li>
     </ul>
   <% end %>

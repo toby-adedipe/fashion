@@ -1,4 +1,16 @@
+<%#= render 'shared/errors', obj: @post %>
+
   <%= form_for(@post, :html => {:multipart => true, class: "form-horizontal", role: "form"}) do |f| %>
+  <% if @post.errors.any? %>
+  <div class="errors">
+    <h2><%= pluralize(@post.errors.count, "error") %> prevented this post from saving</h2>
+    <ul>
+      <% @post.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+    <% end %>
+  </div>
     <div class="">
     <%= f.label :title %>
   </div>
