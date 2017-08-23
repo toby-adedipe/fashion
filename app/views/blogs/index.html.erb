@@ -1,15 +1,17 @@
 <div align= "center" class="container">
-  <div class="">
-    <% @post.each do |post| %>
-    <hr><p><%= post.title %></p>
-    <%= image_tag post.image.url %><br>
-    <%= truncate(post.body, length: 100) %><br>
-    <%= post.created_at.strftime("%B, %d, %Y") %>
-    <ul class="pager">
-        <li class="">
+  <div class="col-xs-8 col-xs-offset-2">
+    <div class="">
+      <% @post.each do |post| %>
+      <hr><p><%= post.title %></p>
+      <%= image_tag post.image.url, width: 300 %><br>
+      <%= truncate(post.body, length: 100) %><br>
+      <%= post.created_at.strftime("%B, %d, %Y") %>
+      <ul class="pager">
+          <li class="">
             <%= link_to "Continue Reading", post_path(post) %>
-        </li>
-    </ul>
-    <% end %>
+          </li>
+      </ul>
+      <% end %>
+    </div>
   </div>
 </div>

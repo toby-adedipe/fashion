@@ -1,35 +1,27 @@
-<%#= render 'shared/errors', obj: @post %>
-
-  <%= form_for(@post, :html => {:multipart => true, class: "form-horizontal", role: "form"}) do |f| %>
-  <% if @post.errors.any? %>
-  <div class="errors">
-    <h2><%= pluralize(@post.errors.count, "error") %> prevented this post from saving</h2>
-    <ul>
-      <% @post.errors.full_messages.each do |msg| %>
-      <li><%= msg %></li>
-      <% end %>
-    </ul>
-    <% end %>
-  </div>
+    <%= form_for(@post, :html => {:multipart => true, class: "form-horizontal", role: "form"}) do |f| %>
+    <%= render 'shared/errors', obj: @post %>
+    <div class="col-xs-8 col-xs-offset-2">
     <div class="">
-    <%= f.label :title %>
-  </div>
-    <div class="">
-      <%= f.text_field :title, class: "form-control", placeholder: "Title of article", autofocus: true %>
-  </div>
-  <div class="">
-    <%= f.label :body %>
+      <%= f.label :title %>
     </div>
     <div class="">
-    <%= f.text_area :body, rows: 10, class: "form-control", placeholder: "Body of article" %>
+        <%= f.text_field :title, class: "form-control", placeholder: "Title of article", autofocus: true %>
     </div>
     <div class="">
-      <div class="">
-        <%= f.label :image %>
-      </div>
+      <%= f.label :body %>
+    </div>
+    <div class="">
+      <%= f.text_area :body, rows: 10, class: "form-control", placeholder: "Body of article" %>
+    </div>
+    <div class="">
+      <%= f.label :image %>
+    </div>
+    <div class="">
       <%= f.file_field :image , as: :file %>
     </div>
     <div class="">
-    <%= f.submit class: 'btn btn-primary btn-lg' %>
+      <%= f.submit class: 'btn btn-primary btn-lg' %>
+    </div>
+    <% end %>
+    <p><%= link_to "All blog Posts", posts_path %></p>
   </div>
-  <% end %>

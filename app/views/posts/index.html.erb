@@ -1,15 +1,15 @@
-<div align = "center" class="container">
-  <h1>index page for posts</h1>
-  <% @post.each do |post| %>
+<div align= "center" class="container">
+  <div class="">
+    <% @post.each do |post| %>
+    <hr><p><%= post.title %></p>
+    <%= image_tag post.image.url, width: 300 %><br>
+    <%= truncate(post.body, length: 100) %><br>
     <%= post.created_at.strftime("%B, %d, %Y") %>
-    <p><%= post.title %></p>
-    <%= image_tag post.image.url %><br>
-    <%= truncate(post.body, length: 100) %><hr>
     <ul class="pager">
-        <li class="next">
-            <%= link_to "Read more", post_path(post) %>
+        <li class="">
+            <%= link_to "Continue Reading", post_path(post) %>
         </li>
     </ul>
-  <% end %>
-
+    <% end %>
+  </div>
 </div>
